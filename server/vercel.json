@@ -1,11 +1,10 @@
 {
-  "version": 2,
-  "build": {
-    "env": {
-      "MONGO_URI": "mongodb+srv://xtylishab000:o8e9aES5cpYsooTq@cluster0.orvxkjy.mongodb.net/"
-    }
+ 
+  "builds": {
+    "src":"./app.js",
+    "use":"@vercel/node"
   },
   "routes": [
-    { "src": "/(.*)", "dest": "/index.html" }
+    { "src": "/(.*)", "dest": "/app.js" }
   ]
 }
