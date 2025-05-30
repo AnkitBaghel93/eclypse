@@ -1,15 +1,18 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const conn = require('./utilise/conn'); // 👈 Import connection function
+const conn = require('./utilise/conn'); //  Import connection function
 
 require('dotenv').config(); // ⬅ Make sure you have dotenv to read .env file
-conn(); // 👈 Connect to DB at startup
+conn(); //  Connect to DB at startup
 
 app.use(cors());
 app.use(express.json());
 
 const auth = require('./routes/auth');
+app.use(cors({
+  origin : ["http://localhost:3000","https://zippy-axolotl-825a5c.netlify.app"]
+}))
 
 app.get('/', (req, res) => {
   res.send('Server is up and running!');
